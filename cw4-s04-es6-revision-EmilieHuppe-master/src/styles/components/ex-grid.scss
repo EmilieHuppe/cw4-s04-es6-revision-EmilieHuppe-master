@@ -1,0 +1,65 @@
+/* ==========================================================================
+   exercice grid corrige / component
+   ========================================================================== */
+
+.main-grid {
+    --ex-grid-gap: 40px;
+
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.card {
+    background: var(--color-white);
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    filter: blur(3px);
+    filter: grayscale(1);
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    transform: translateY(0);
+
+    header {
+        background: var(--color-primary);
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    h2 {
+        margin: 0;
+        font-weight: 400;
+    }
+    p {
+        color: var(--color-primary);
+        padding: 20px;
+        text-align: left;
+    }
+    .content {
+        display: flex;
+        align-items: center;
+        img {
+            width: 40%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 0;
+        }
+        p {
+            width: 60%;
+            padding: 20px;
+            font-size: 16px;
+        }
+    }
+
+    &.active,
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    &.active {
+        filter: blur(0);
+        filter: grayscale(0);
+    }
+}
